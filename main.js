@@ -7,6 +7,13 @@ var p1Score = 0;
 var p2Score = 0;
 var gameOver = false;
 var winningScore = 5;
+var input = document.getElementById("input1");
+var winScore = document.getElementById("num");
+input.addEventListener("change", function() {
+    num.textContent = this.value;
+    winningScore = Number(this.value);
+    reset1();
+})
 p1.addEventListener("click", function() {
     if (!gameOver) {
         p1Score++;
@@ -28,6 +35,10 @@ p2.addEventListener("click", function() {
     }
 });
 reset.addEventListener("click", function() {
+    reset1();
+});
+
+function reset1() {
     p1Score = 0;
     p2Score = 0;
     p1Display.textContent = 0;
@@ -35,4 +46,4 @@ reset.addEventListener("click", function() {
     p1Display.classList.remove("winner");
     p2Display.classList.remove("winner");
     gameOver = false;
-});
+}
